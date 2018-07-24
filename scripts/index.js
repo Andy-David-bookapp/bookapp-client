@@ -1,6 +1,9 @@
 'use strict';
-var app = app || {};
 
+let app = app || {};
+
+//module here is an anonymous function parameter
+//It's also the beginning of IIFE which is used to prevent name collisions.
 (function (module) {
 
   let productionApiUrl = 'https://ah-dh-bookapp-server.herokuapp.com/';
@@ -12,28 +15,6 @@ var app = app || {};
     apiUrl: module.isProduction ? productionApiUrl : developmentApiUrl
   };
 
-  function Book(rawDataObj) {
-    Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
-  }
-  // TODO should this be outside the iffe?
-  Book.all = [];
+  // TODO we need to add the show hide stuff here on module
 
-  Book.prototype.toHtml = function () {
-    var template = Handlebars.compile($('#book-template').text());
-    return template(this);
-  };
-
-  Book.loadAll = bookData => {
-    Book.all = bookData.map(element => new Book(element));
-
-  };
-
-  Book.fetchAll = callback => {
-    $.get('/books')
-      .then(results => {
-        Book.loadAll(results);
-        callback();
-      })
-  };
-
-})(app);
+})(app);//app here is an argument mapping to parameter module. Also, this is IIFE end.

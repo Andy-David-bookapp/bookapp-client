@@ -2,9 +2,76 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hello World!</title>
+  <title>Book App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/icons.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/layout.css">
+  <link rel="stylesheet" href="styles/modules.css">
+  <link rel="icon" type="image/x-icon" href="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200">
+
+  <script id="book-template" type="text/x-handlebars-template">
+    <article class="clearfix">
+      <img src="{{imageURL}}" alt="The book's cover art">
+      <header>
+        <h1>{{title}}</h1>
+        <h2>{{author}}</h2>
+      </header>
+    </article>
+  </script>
+
 </head>
 <body>
+<header class="clearfix">
+  <section class="heading-group-h1">
+    <img src="https://avatars2.githubusercontent.com/u/18607604?v=3&s=200" alt="Code Fellows Logo">
+    <h1>
+      Code Fellows 301 Class Books App
+    </h1>
+  </section>
+  <!--<nav>
+  TODO
+  </nav>-->
+</header>
+<main>
+  <h2>my books</h2>
+  <section id="books">
+  </section>
+  <section id="about">
+    <header>
+      Welcome to our Code Fellows Book App
+    </header>
+    <section>
+      <h1>Some of Andy's interests:</h1>
+      <ul>
+        <li>Gaming</li>
+        <li>Cooking</li>
+        <li>Outdoors</li>
+      </ul>
+      <h1>Some of David's interests:</h1>
+      <ul>
+        <li>Sailing</li>
+        <li>Beer & Bourbon</li>
+        <li>Hiking</li>
+      </ul>
+    </section>
+  </section>
+</main>
+<footer>
+  <ul>
+    <li><a href="https://github.com/Andy-David-bookapp" target="_blank" class="icon-github"></a></li>
+    <li><a href="https://www.linkedin.com" target="_blank" class="icon-link"></a></li>
+  </ul>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script src="scripts/index.js"></script>
+<script src="scripts/views/book-view.js"></script>
+<script>
+  // TODO Book.fetchAll(bookView.initIndexPage);
+</script>
 
 </body>
 </html>

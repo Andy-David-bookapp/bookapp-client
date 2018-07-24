@@ -1,11 +1,13 @@
 'use strict';
 
-var app = app || {};
+let app = app || {};
 
-var bookView = {};
-
-(function () {
+//It's also the beginning of IIFE which is used to prevent name collisions.
+(function (module) {
+  const bookView = {};
   bookView.initIndexPage = () => {
     app.Book.all.forEach(a => $('#books').append(a.toHtml()));
   };
-})(app);
+
+  module.bookView = bookView;//this is updating the global variable app via assignment
+})(app);//app here is an argument mapping to parameter module. Also, this is IIFE end.

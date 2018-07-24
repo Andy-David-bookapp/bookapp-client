@@ -1,6 +1,6 @@
 'use strict';
-
-let app = app || {};
+// TODO Review Why was this using var in our kilokolt labs and not using let?
+var app = app || {};
 
 //module here is an anonymous function parameter
 //It's also the beginning of IIFE which is used to prevent name collisions.

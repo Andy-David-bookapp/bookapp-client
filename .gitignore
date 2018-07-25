@@ -66,4 +66,4 @@ tags
 
 # intellij project
 .idea
-server.iml
+client.iml

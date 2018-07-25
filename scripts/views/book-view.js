@@ -8,9 +8,11 @@ var app = app || {};
 //module here is an anonymous function parameter
 //It's also the beginning of IIFE which is used to prevent name collisions.
 (function (module) {
+
   const bookView = {};
+
   bookView.initIndexPage = () => {
-    app.Book.all.forEach(a => $('#books').append(a.toHtml()));
+    app.Book.all.forEach(a => $('.book-view').append(a.toHtml()));
   };
 
   module.bookView = bookView;//this is updating the global variable app via assignment

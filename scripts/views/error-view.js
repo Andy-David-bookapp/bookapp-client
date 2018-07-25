@@ -3,12 +3,18 @@
 var app = app || {};
 
 (function(module){
+
   const errorView = {};
 
-  errorView.initErrorPage = err => {
-    app.showOnly('.errorView');
+  errorView.initErrorPage = error => {
+
+    const template = Handlebars.compile($('#error-template').text());
+
+    app.hide($('.container'));
     $('#error-message').empty();
-    $('#error-message').append(app.render('error-template', err) );
+    $('#error-message').append(template(error));
+    app.showOnly($('#error-view'));
   };
-  module.View = errorView;
+  module.errorView = errorView;
+
 })(app);

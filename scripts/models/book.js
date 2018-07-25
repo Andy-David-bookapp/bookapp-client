@@ -23,12 +23,12 @@ var app = app || {};
   Book.loadAll = bookData => {
     Book.all = bookData.map(element => new Book(element));
   };
-
+// TODO We need to update route to use api/v1/books
   Book.fetchAll = callback => {
     $.get(`${app.ENVIRONMENT.apiUrl}/books`)
       .then(results => {
         Book.loadAll(results);
-        callback();
+        callback(); // TODO will this invoke our app. Refer to lab 11 last bullet; how to support.
       })
   };
 

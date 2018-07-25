@@ -20,6 +20,13 @@
       </header>
     </article>
   </script>
+  <script id="error-template" type="text/x-handlebars-template">
+    <article class="clearfix">
+      <header>
+        <p>{{code}}: {{message}}</p>
+      </header>
+    </article>
+  </script>
 
 </head>
 <body>
@@ -36,9 +43,9 @@
 </header>
 <main>
   <h2>my books</h2>
-  <section id="books">
+  <section id="book-view" class="container">
   </section>
-  <section id="about">
+  <section id="about-view" class="container">
     <header>
       Welcome to our Code Fellows Book App
     </header>
@@ -55,6 +62,10 @@
         <li>Beer & Bourbon</li>
         <li>Hiking</li>
       </ul>
+    </section>
+    <section id="error-view" class="container">
+      <h3>Something went wrong</h3>
+      <section id="error-message"></section>
     </section>
   </section>
 </main>

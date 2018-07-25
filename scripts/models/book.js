@@ -25,7 +25,7 @@ var app = app || {};
   };
 // TODO We need to update route to use api/v1/books
   Book.fetchAll = callback => {
-    $.get(`${app.ENVIRONMENT.apiUrl}/books`)
+    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books`)
       .then(results => {
         Book.loadAll(results);
         callback(); // TODO will this invoke our app. Refer to lab 11 last bullet; how to support.

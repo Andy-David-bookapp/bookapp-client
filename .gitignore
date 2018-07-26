@@ -67,3 +67,4 @@ tags
 # intellij project
 .idea
 client.iml
+github-token.txt

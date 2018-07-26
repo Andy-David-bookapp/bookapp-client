@@ -12,8 +12,15 @@ var app = app || {};
   const bookView = {};
 
   bookView.initIndexPage = () => {
-    app.Book.all.forEach(a => $('.book-view').append(a.toHtml()));
+    app.Book.all.forEach(a => $('#book-view').append(a.toHtml()));
+    app.showOnly('#book-view')
   };
 
   module.bookView = bookView;//this is updating the global variable app via assignment
 })(app);//app here is an argument mapping to parameter module. Also, this is IIFE end.
+
+// TODone REVIEW This is equivalent to document.ready?
+// ANS: it's shorthand. http://learn.jquery.com/using-jquery-core/document-ready/
+$(function() {
+  app.Book.fetchAll(app.bookView.initIndexPage);
+});

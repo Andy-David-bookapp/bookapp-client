@@ -21,10 +21,10 @@ var app = app || {};
 
   // TODO we need to add the show hide stuff here on module
   // look at single page app lab.
-  module.showOnly = (selector) => {
-    $('.container').hide();
-    $(selector).show();
-  };
+  // module.showOnly = (selector) => {
+    // $('.container').hide();
+    // $(selector).show();
+  // };
 
   module.render = (templateID,data) => {
     if(!module.bookTemplate){

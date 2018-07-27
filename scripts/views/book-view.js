@@ -13,7 +13,24 @@ var app = app || {};
 
   bookView.initIndexPage = () => {
     app.Book.all.forEach(a => $('#book-view').append(a.toHtml()));
-    app.showOnly('#book-view')
+    // app.showOnly('#book-view')
+  };
+
+  bookView.initCreateFormPage = () => {
+    console.log('begin initCreateFormPage');
+    // app.showOnly('#new-book');
+    $('#new-form').on('submit', (event) => {
+      event.preventDefault();
+      console.log('begin submit processing');
+      let book = new Book({
+        author: $('#author').val(),
+        title: $('#title').val(),
+        isbn: $('#isbn').val(),
+        description: $('#description').val(),
+        image_url: $('#image-url').val()
+      });
+      book.insertRecord();
+    });
   };
 
   module.bookView = bookView;//this is updating the global variable app via assignment
@@ -21,6 +38,7 @@ var app = app || {};
 
 // TODone REVIEW This is equivalent to document.ready?
 // ANS: it's shorthand. http://learn.jquery.com/using-jquery-core/document-ready/
-$(function() {
-  app.Book.fetchAll(app.bookView.initIndexPage);
-});
+// REVIEW: can't do this and page.
+// $(function() {
+//   app.Book.fetchAll(app.bookView.initIndexPage);
+// });

@@ -10,10 +10,10 @@ var app = app || {};
 
     const template = Handlebars.compile($('#error-template').text());
 
-    app.hide($('.container'));
-    $('#error-message').empty();
-    $('#error-message').append(template(error));
-    app.showOnly($('#error-view'));
+    // app.hide($('.container'));
+    // $('#error-message').empty();
+    // $('#error-message').append(template(error));
+    // app.showOnly($('#error-view'));
   };
   module.errorView = errorView;
 

@@ -9,37 +9,35 @@ var app = app || {};
 //It's also the beginning of IIFE which is used to prevent name collisions.
 (function (module) {
 
-  function Book (rawDataObj) {
-    console.log('create new Book! '+rawDataObj);
+  function Book(rawDataObj) {
     Object.keys(rawDataObj).forEach(key => this[key] = rawDataObj[key]);
   }
 
-  Book.all = [];
-
-  Book.prototype.toHtml = function () {
-    const template = Handlebars.compile($('#book-template').text());
-    return template(this);
+  Book.createBook = bookData => {
+    $.post(`${app.ENVIRONMENT.apiUrl}/api/v1/books`, bookData)
+      .then( () => page('/'))
+      .catch()
   };
 
-  Book.loadAll = bookData => {
-    Book.all = bookData.map(element => new Book(element));
-  };
+Book.all = [];
+
+Book.prototype.toHtml = function () {
+  const template = Handlebars.compile($('#book-template').text());
+  return template(this);
+};
+
+Book.loadAll = bookData => {
+  Book.all = bookData.map(element => new Book(element));
+};
 // TODone We need to update route to use api/v1/books
-  Book.fetchAll = callback => {
-    $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books`)
-      .then(results => {
-        Book.loadAll(results);
-        callback(); // TODO will this invoke our app. Refer to lab 11 last bullet; how to support.
-      })
-  };
+Book.fetchAll = callback => {
+  $.get(`${app.ENVIRONMENT.apiUrl}/api/v1/books`)
+    .then(results => {
+      Book.loadAll(results);
+      callback(); // TODO will this invoke our app. Refer to lab 11 last bullet; how to support.
+    })
+};
 
-  Book.prototype.insertRecord = function(callback) {
-    $.post('/api/v1/books', {author: this.author, title: this.title, isbn: this.isbn, description: this.description, image_url: this.image_url})
-      .then(data => {
-        console.log(data);
-        if (callback) callback();
-      })
-  };
-
-  module.Book = Book;//this is updating the global variable app via assignment
-})(app);//app here is an argument mapping to parameter module. Also, this is IIFE end.
+module.Book = Book;//this is updating the global variable app via assignment
+})
+(app);//app here is an argument mapping to parameter module. Also, this is IIFE end.

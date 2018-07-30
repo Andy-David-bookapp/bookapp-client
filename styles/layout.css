@@ -1,0 +1,114 @@
+header{
+  background-color: blue;
+}
+
+body{ background-color: blue;
+}
+
+.clearfix {
+  background-color: blue;
+}
+
+.clearfix img {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.clearfix h1 {
+  text-align: center;
+
+}
+
+main h2 {
+  text-align: center;
+}
+
+main img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main header h1 {
+  text-align: center;
+  background-color: red;
+}
+
+main header h2 {
+  text-align: center;
+  background-color: red;
+}
+
+#welcome-header{
+  text-align: center;
+}
+
+label {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+#title {
+  text-align: center;
+}
+
+#author {
+  margin-top: 16px;
+  text-align: center;
+}
+
+#isbn{
+  margin-top: 16px;
+  text-align: center;
+}
+
+#image-url {
+  margin-top: 16px;
+  text-align: center
+}
+
+#description {
+  margin-top: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+button {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: red;
+}
+footer{
+  background-color: white;
+}
+
+#new-book {
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+}
+
+h3 {
+  text-align: center;
+  color: white;
+}
+
+#new-book-view {
+  text-align: center;
+}
+
+#github {
+  display: block;
+  margin-left: 80%;
+}
+
+#linkedin {
+  display: block;
+  margin-top: -19px;
+}
